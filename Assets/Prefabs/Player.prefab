@@ -102,13 +102,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8352392605497992990}
   serializedVersion: 2
-  m_Mass: 50
-  m_Drag: 0.1
-  m_AngularDrag: 0.1
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &8352392605497992976
 MonoBehaviour:
@@ -124,7 +124,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   rb: {fileID: 7909850383492164212}
+  velocity: {x: 0, y: 0, z: 0}
+  transversalSpeed: {x: 0, y: 0, z: 0}
+  longitudinalSpeed: {x: 0, y: 0, z: 0}
+  transversalDrag: 150
+  longitudinalDrag: 50
   camDistance: 3
-  velocity: 0
-  thrustForce: 0
-  steerForce: 0
+  forwardThrustForce: 5000
+  backwardThrustForce: 1000
+  steerForce: 1000

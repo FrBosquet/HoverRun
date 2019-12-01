@@ -16,10 +16,9 @@ public class PlayerController : MonoBehaviour
 
     public float camDistance = 3;
 
-    public float thrustForce;
+    public float forwardThrustForce;
     public float backwardThrustForce;
     public float steerForce;
-
 
     private void FixedUpdate()
     {
@@ -31,13 +30,13 @@ public class PlayerController : MonoBehaviour
         float thrust = Input.GetAxis("Thrust");
         float steer = Input.GetAxis("Steer");
 
-        rb.AddForce(transform.forward * thrust * thrustForce * Time.deltaTime);
+        float thrustForce = thrust > 0 ? forwardThrustForce : backwardThrustForce;
+        Vector3 longitudinalForce = transform.forward * thrust * thrustForce - longitudinalSpeed * longitudinalDrag;
+        Vector3 transversalForce = -transversalSpeed * transversalDrag;
+
+        rb.AddForce(longitudinalForce * Time.deltaTime);
+        rb.AddForce(transversalForce * Time.deltaTime);
         rb.AddTorque(transform.up * steer * steerForce * Time.deltaTime);
-
-        //Drag
-        rb.AddForce(-longitudinalSpeed * longitudinalDrag * Time.deltaTime);
-        rb.AddForce(-transversalSpeed * transversalDrag * Time.deltaTime);
-
 
         positionCamera();
     }
