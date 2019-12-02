@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float transversalDrag;
     public float longitudinalDrag;
 
+    public bool isGrounded = false;
     public float camDistance = 3;
 
     public float maxSpeed = 5;
@@ -39,11 +40,14 @@ public class PlayerController : MonoBehaviour
         Vector3 transversalForce = -transversalSpeed * transversalDrag;
         Vector3 angularForce = transform.up * steer * steerForce;
 
-        rb.AddForce(longitudinalForce * Time.deltaTime);
-        rb.AddForce(transversalForce * Time.deltaTime);
-        transform.Rotate(angularForce * Time.deltaTime);
+        if (isGrounded)
+        {
+            rb.AddForce(longitudinalForce * Time.deltaTime);
+            rb.AddForce(transversalForce * Time.deltaTime);
+            transform.Rotate(angularForce * Time.deltaTime);
 
-        positionCamera();
+            positionCamera();
+        }
     }
 
     private void positionCamera()
@@ -52,5 +56,21 @@ public class PlayerController : MonoBehaviour
 
         cam.transform.position = transform.position + camOffset;
         cam.transform.LookAt(transform);
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.CompareTag("Ground") && isGrounded)
+        {
+            isGrounded = false;
+        }
+    }
+
+    private void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
     }
 }
