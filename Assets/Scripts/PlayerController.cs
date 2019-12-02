@@ -73,4 +73,17 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Checkpoint"))
+        {
+            Checkpoint checkpoint = other.GetComponent<Checkpoint>();
+
+            if (checkpoint.Use())
+            {
+                Debug.Log("Checkpoint!");
+            }
+        }
+    }
 }
