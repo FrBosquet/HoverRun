@@ -37,10 +37,11 @@ public class PlayerController : MonoBehaviour
 
         Vector3 longitudinalForce = transform.forward * thrust * thrustForce - longitudinalSpeed * longitudinalDrag;
         Vector3 transversalForce = -transversalSpeed * transversalDrag;
+        Vector3 angularForce = transform.up * steer * steerForce;
 
         rb.AddForce(longitudinalForce * Time.deltaTime);
         rb.AddForce(transversalForce * Time.deltaTime);
-        transform.Rotate(transform.up * steer * steerForce * Time.deltaTime);
+        transform.Rotate(angularForce * Time.deltaTime);
 
         positionCamera();
     }
