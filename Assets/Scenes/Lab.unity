@@ -1515,26 +1515,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7909850383492164212, guid: 67cbcc827f6ec0142b213e7729e8333d,
-        type: 3}
-      propertyPath: m_Drag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7909850383492164212, guid: 67cbcc827f6ec0142b213e7729e8333d,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7909850383492164212, guid: 67cbcc827f6ec0142b213e7729e8333d,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 7909850383492164212, guid: 67cbcc827f6ec0142b213e7729e8333d,
-        type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8352392605497992976, guid: 67cbcc827f6ec0142b213e7729e8333d,
         type: 3}
       propertyPath: cam
@@ -1544,11 +1524,6 @@ PrefabInstance:
         type: 3}
       propertyPath: thrustForce
       value: 5000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8352392605497992976, guid: 67cbcc827f6ec0142b213e7729e8333d,
-        type: 3}
-      propertyPath: steerForce
-      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8352392605497992980, guid: 67cbcc827f6ec0142b213e7729e8333d,
         type: 3}

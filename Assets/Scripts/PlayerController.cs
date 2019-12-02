@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     public float camDistance = 3;
 
+    public float maxSpeed = 5;
     public float forwardThrustForce;
     public float backwardThrustForce;
     public float steerForce;
@@ -31,6 +32,9 @@ public class PlayerController : MonoBehaviour
         float steer = Input.GetAxis("Steer");
 
         float thrustForce = thrust > 0 ? forwardThrustForce : backwardThrustForce;
+
+        if (velocity.magnitude > maxSpeed) thrustForce = 0;
+
         Vector3 longitudinalForce = transform.forward * thrust * thrustForce - longitudinalSpeed * longitudinalDrag;
         Vector3 transversalForce = -transversalSpeed * transversalDrag;
 
