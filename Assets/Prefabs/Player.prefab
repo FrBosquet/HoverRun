@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8352392605497992980}
   - component: {fileID: 8352392605497992981}
   - component: {fileID: 8352392605497992978}
-  - component: {fileID: 8352392605497992979}
   - component: {fileID: 7909850383492164212}
   - component: {fileID: 8352392605497992976}
+  - component: {fileID: 4033185098718033733}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -81,19 +81,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &8352392605497992979
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8352392605497992990}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7909850383492164212
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -124,12 +111,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   rb: {fileID: 7909850383492164212}
-  velocity: {x: 0, y: 0, z: 0}
-  transversalSpeed: {x: 0, y: 0, z: 0}
-  longitudinalSpeed: {x: 0, y: 0, z: 0}
   transversalDrag: 150
-  longitudinalDrag: 50
-  camDistance: 3
+  longitudinalDrag: 30.6
+  camDistance: 3.53
+  maxSpeed: 15
   forwardThrustForce: 5000
   backwardThrustForce: 1000
-  steerForce: 1000
+  steerForce: 150
+  minSteerPercentage: 0.7
+--- !u!136 &4033185098718033733
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8352392605497992990}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.6
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
