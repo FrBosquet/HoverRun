@@ -26,4 +26,17 @@ public class CheckpointManager : MonoBehaviour
 
     return -1;
   }
+
+  public bool IsLast(GameObject checkpoint)
+  {
+    return IndexOf(checkpoint) == checkpoints.Count - 1;
+  }
+
+  public void Reset()
+  {
+    foreach (GameObject checkpoint in checkpoints)
+    {
+      checkpoint.SetActive(true);
+    }
+  }
 }

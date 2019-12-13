@@ -83,20 +83,21 @@ public class PlayerController : MonoBehaviour
     {
       int index = checkpointManager.IndexOf(other.gameObject);
 
+
       if (index == nextCheckpoint)
       {
-        nextCheckpoint++;
-
-        Checkpoint checkpoint = other.GetComponent<Checkpoint>();
-
-        other.gameObject.SetActive(false);
-
-        if (checkpoint.Use())
+        if (checkpointManager.IsLast(other.gameObject))
         {
-          Debug.Log("Checkpoint!");
+          //Next lap
+          nextCheckpoint = 0;
+          checkpointManager.Reset();
+          return;
         }
-      }
 
+        //Next checkpoint
+        nextCheckpoint++;
+        other.gameObject.SetActive(false);
+      }
     }
   }
 }
